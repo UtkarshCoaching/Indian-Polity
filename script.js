@@ -1,5 +1,5 @@
 const questions = [
-  {
+{
     "question": "সংবিধান কাকে বলে?",
     "options": [
       "একটি দেশের অর্থনীতি পরিচালনার নিয়মাবলী",
@@ -847,4 +847,4 @@ function displayDetailedQuestions(category) {
 function backToSummaryScreen() {
     detailedAnswersContainer.style.display = 'none'; // Hide detailed view
     resultSummary.style.display = 'block'; // Show summary
-} 
+}
