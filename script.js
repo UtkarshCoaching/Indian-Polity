@@ -847,4 +847,4 @@ function displayDetailedQuestions(category) {
 function backToSummaryScreen() {
     detailedAnswersContainer.style.display = 'none'; // Hide detailed view
     resultSummary.style.display = 'block'; // Show summary
-}
+} 
