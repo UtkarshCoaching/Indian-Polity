@@ -5,16 +5,16 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    margin: 0; /* নিশ্চিত করুন বডিতে কোনো ডিফল্ট মার্জিন নেই */
     color: #333;
-    overflow-x: hidden;
+    overflow-x: hidden; /* অনুভূমিক স্ক্রলিং প্রতিরোধ করতে */
 }
 .quiz-container {
     background-color: #f1f5f7; /* Light blue background as in image */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 0 5px #f7f8f8; /* Blue dotted border effect */
-    border-top: 5px dotted #f8f9fa;
+    border-top: 5px dotted #f8f9f8;
     border-bottom: 5px dotted #f4f6f7;
     width: 95%;
     max-width: 800px; /* কুইজ কন্টেইনারের সর্বোচ্চ প্রস্থ বাড়ানো হয়েছে */
@@ -299,6 +299,8 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
+    width: 100%; /* মোবাইলে আরও চওড়া করার জন্য যোগ করা হয়েছে */
+    box-sizing: border-box; /* padding এবং border প্রস্থের মধ্যে অন্তর্ভুক্ত করতে */
 }
 .result-screen .result-summary p {
     margin-bottom: 10px;
@@ -377,6 +379,8 @@ h2 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
     text-align: left; /* Align text to left for readability */
+    width: 100%; /* মোবাইলে আরও চওড়া করার জন্য যোগ করা হয়েছে */
+    box-sizing: border-box;
 }
 
 .detailed-answers-container h2 {
@@ -390,6 +394,8 @@ h2 {
     max-height: 400px; /* Limit height for scrolling */
     overflow-y: auto;
     padding-right: 10px; /* For scrollbar */
+    width: 100%; /* নিশ্চিত করুন এটি 100% প্রস্থ নেবে */
+    box-sizing: border-box;
 }
 
 .detailed-questions-list ul {
@@ -408,6 +414,8 @@ h2 {
     font-size: 1em;
     line-height: 1.6;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%; /* নিশ্চিত করুন এটি 100% প্রস্থ নেবে */
+    box-sizing: border-box;
 }
 
 .question-header {
@@ -469,6 +477,8 @@ h2 {
     color: #333;
     font-size: 0.95em;
     border: 1px solid #dee2e6;
+    width: 100%; /* নিশ্চিত করুন এটি 100% প্রস্থ নেবে */
+    box-sizing: border-box;
 }
 
 .detailed-options li.selected-correct {
@@ -499,6 +509,8 @@ h2 {
     padding: 25px; /* প্যাডিং বাড়ানো হয়েছে */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* মোবাইলে আরও চওড়া করার জন্য যোগ করা হয়েছে */
+    box-sizing: border-box;
 }
 
 .ranking-section h2 {
@@ -550,8 +562,12 @@ h2 {
 /* Responsive adjustments */
 @media (max-width: 768px) { /* নতুন ব্রেকপয়েন্ট যোগ করা হয়েছে */
     .quiz-container {
-        padding: 20px;
-        max-width: 90%;
+        padding: 0; /* মোবাইলে কোনো প্যাডিং থাকবে না */
+        border-radius: 0; /* বর্ডার রেডিয়াস সরিয়ে দেওয়া হয়েছে */
+        box-shadow: none; /* শ্যাডো সরিয়ে দেওয়া হয়েছে */
+        border: none; /* বর্ডার সরিয়ে দেওয়া হয়েছে */
+        width: 100%; /* সম্পূর্ণ প্রস্থ নেবে */
+        max-width: 100%; /* সর্বোচ্চ প্রস্থও সম্পূর্ণ */
     }
     .start-screen h1, .result-screen h2 {
         font-size: 2.2em;
@@ -597,11 +613,53 @@ h2 {
         margin-left: 0;
         margin-top: 5px;
     }
+    /* রেজাল্ট সেকশনের অভ্যন্তরীণ ডিভগুলো চওড়া করতে */
+    .result-screen .result-summary,
+    .detailed-answers-container,
+    .ranking-section {
+        width: 100%; /* তাদের প্যারেন্টের 100% প্রস্থ নিতে দিন */
+        box-sizing: border-box; /* নিশ্চিত করুন প্যাডিং এবং বর্ডার প্রস্থের মধ্যে অন্তর্ভুক্ত হয় */
+        border-radius: 0; /* বর্ডার রেডিয়াস সরিয়ে দিন */
+        box-shadow: none; /* শ্যাডো সরিয়ে দিন */
+        margin-bottom: 0; /* মার্জিন সরিয়ে দিন */
+        padding: 15px; /* ছোট স্ক্রিনের জন্য প্যাডিং কিছুটা কমানো যেতে পারে */
+    }
+    /* রেজাল্ট স্ক্রিনের নিজস্ব প্যাডিং */
+    .result-screen {
+        padding: 0; /* রেজাল্ট স্ক্রিনের কোনো প্যাডিং থাকবে না */
+    }
+
+    /* ডিটেইলড অ্যানসার সেকশনের ভিতরের এলিমেন্টগুলির জন্য */
+    .detailed-questions-list {
+        padding-right: 0; /* স্ক্রলবারের জন্য অতিরিক্ত প্যাডিং সরিয়ে দেওয়া হয়েছে */
+    }
+    .detailed-question-item {
+        padding: 10px; /* প্যাডিং কমানো হয়েছে */
+        margin-bottom: 10px; /* মার্জিন কমানো হয়েছে */
+        border-radius: 0; /* বর্ডার রেডিয়াস সরিয়ে দেওয়া হয়েছে */
+        box-shadow: none; /* শ্যাডো সরিয়ে দেওয়া হয়েছে */
+        border-left: none; /* বাম বর্ডার সরিয়ে দেওয়া হয়েছে */
+        border-right: none; /* ডান বর্ডার সরিয়ে দেওয়া হয়েছে */
+    }
+    .detailed-options li {
+        padding: 6px 10px; /* অপশন লিস্ট আইটেমের প্যাডিং কমানো হয়েছে */
+        margin-bottom: 3px; /* মার্জিন কমানো হয়েছে */
+        border-radius: 0; /* বর্ডার রেডিয়াস সরিয়ে দেওয়া হয়েছে */
+        border-left: none; /* বাম বর্ডার সরিয়ে দেওয়া হয়েছে */
+        border-right: none; /* ডান বর্ডার সরিয়ে দেওয়া হয়েছে */
+    }
+    .question-number, .question-text {
+        font-size: 1em; /* ফন্ট সাইজ কমানো হয়েছে */
+    }
+    .status-indicator {
+        font-size: 0.8em; /* ফন্ট সাইজ কমানো হয়েছে */
+        padding: 2px 6px;
+    }
 }
 
 @media (max-width: 600px) {
     .quiz-container {
-        padding: 15px;
+        padding: 0;
     }
     .top-bar {
         flex-direction: row;
@@ -657,6 +715,20 @@ h2 {
         font-size: 2em;
         margin-bottom: 20px;
     }
+    .result-screen .result-summary,
+    .detailed-answers-container,
+    .ranking-section {
+        padding: 10px; /* আরও ছোট স্ক্রিনের জন্য প্যাডিং কমানো হয়েছে */
+    }
+    /* ডিটেইলড অ্যানসার সেকশনের ভিতরের এলিমেন্টগুলির জন্য */
+    .detailed-question-item {
+        padding: 8px; /* আরও কমানো হয়েছে */
+        margin-bottom: 8px; /* আরও কমানো হয়েছে */
+    }
+    .detailed-options li {
+        padding: 5px 8px; /* আরও কমানো হয়েছে */
+        margin-bottom: 2px; /* আরও কমানো হয়েছে */
+    }
 }
 
 @media (max-width: 400px) {
@@ -692,4 +764,13 @@ h2 {
         padding: 8px 12px;
         font-size: 0.85em;
     }
-} 
+    /* ডিটেইলড অ্যানসার সেকশনের ভিতরের এলিমেন্টগুলির জন্য */
+    .detailed-question-item {
+        padding: 5px; /* আরও কমানো হয়েছে */
+        margin-bottom: 5px; /* আরও কমানো হয়েছে */
+    }
+    .detailed-options li {
+        padding: 4px 6px; /* আরও কমানো হয়েছে */
+        font-size: 0.8em; /* ফন্ট সাইজ কমানো হয়েছে */
+    }
+}
