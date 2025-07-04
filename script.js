@@ -387,7 +387,7 @@ backToResultsButton.addEventListener('click', backToSummaryScreen);
 function handleNameInputAndShowStartScreen() {
     const inputName = userNameInput.value.trim();
     if (inputName === '') {
-        nameInputMessage.textContent = "আপনার নাম লিখুন কুইজ শুরু করার জন্য।";
+        nameInputMessage.textContent = "আপনার নাম লিখুন প্রশ্ন শুরু করার জন্য।";
         return;
     }
     userName = inputName; // ব্যবহারকারীর নাম সংরক্ষণ করুন
